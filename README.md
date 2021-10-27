@@ -97,7 +97,7 @@ Restart= always
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
