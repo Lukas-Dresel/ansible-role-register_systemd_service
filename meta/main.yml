@@ -1,12 +1,13 @@
 galaxy_info:
   role_name: register_systemd_service
+  namespace: lukas_dresel
   author: Lukas Dresel
   description: An Ansible role allowing you to easily install/deploy a custom systemd service
   company: UC Santa Barbara
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
-  issue_tracker_url: http://github.com/shellphish/ictf-framework
+  issue_tracker_url: https://github.com/Lukas-Dresel/ansible-role-register_systemd_service/issues
 
   # Some suggested licenses:
   # - BSD (default)

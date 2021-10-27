@@ -2,8 +2,8 @@
 # handlers file for ansible-role-install_systemd_service
 
 # restart handler
-- name: "{{Name}} restart service"
+- name: "{{ Name }} restart service"
   service:
-    name: "{{Name}}"
+    name: "{{ Name }}"
     state: restarted
   when: Started
