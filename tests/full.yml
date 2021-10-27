@@ -5,7 +5,7 @@
   tasks:
     - name: install a random file dumper as a systemd service
       include_role:
-        name: register_systemd_service
+        name: lukas_dresel.register_systemd_service
       vars:
 
         Name: r4nD0m

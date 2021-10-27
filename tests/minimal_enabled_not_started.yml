@@ -8,6 +8,7 @@
         name: lukas_dresel.register_systemd_service
       vars:
         Name: r4nD0m
+        Enabled: true
         Service:
           WorkingDirectory: /tmp
           ExecStart: "/bin/bash -c 'while true; do head -n 3 /dev/urandom | tee /tmp/r4Nd0m; sleep 10; done'"
