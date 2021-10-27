@@ -6,4 +6,4 @@
   service:
     name: "{{ Name }}"
     state: restarted
-  when: Started
+  when: Started is defined and Started
