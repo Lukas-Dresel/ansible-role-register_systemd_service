@@ -1,0 +1,33 @@
+# Service file created by register_systemd_service for Service {{Name}}
+
+[Unit]
+Description = {{Unit.Description|default(Name)}}
+{% for after in Unit.After|default(["network.target"]) %}
+After = {{after}}
+{% endfor %}
+{% for requires in Unit.Requires|default([]) %}
+Requires = {{requires}}
+{% endfor %}
+
+{% for ape in Unit.AssertPathExists|default([]) %}
+AssertPathExists = {{ ape }}
+{% endfor %}
+AssertPathExists = {{ Service.WorkingDirectory }}
+
+[Service]
+WorkingDirectory= {{ Service.WorkingDirectory }}
+{% for env_name, env_val in (Service.Environment|default({})).items() %}
+Environment={{ env_name }}={{env_val}}
+{% endfor %}
+
+ExecStart={{ Service.ExecStart }}
+Restart= {{ Service.Restart | default("always") }}
+
+{% if Service.User is defined %}
+User={{ Service.User }}
+{% endif %}
+
+[Install]
+{% if Install.WantedBy is defined %}
+WantedBy = {{ Install.WantedBy }}
+{% endif %}

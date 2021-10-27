@@ -1,0 +1,22 @@
+---
+# tasks file for ansible-role-install_systemd_service
+- name: "{{Name}} - setup service daemon"
+  template:
+    src: systemd.service.j2
+    #dest: "/tmp/{{Name}}.service"
+    dest: "/etc/systemd/system/{{Name}}.service"
+    owner: root
+    group: root
+    mode: "u=rw,g=r,o=r"
+  become: true
+  notify:
+    - "{{Name}} restart service"
+
+- name: "{{Name}} - enable service"
+  service:
+    name: "{{Name}}.service"
+    enabled: yes
+  when: Enabled is defined and Enabled
+  notify:
+    - "{{Name}} restart service"
+
