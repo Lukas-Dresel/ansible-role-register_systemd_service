@@ -17,4 +17,3 @@
   when: Enabled is defined and Enabled
   notify:
     - "{{ Name }} restart service"
-
